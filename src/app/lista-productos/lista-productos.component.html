@@ -1,0 +1,203 @@
+<section id="actions" class="py-4 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a
+          class="btn btn-primary btn-block"
+          onclick="document.getElementById('id01').style.display='block'"
+        >
+          <i class="fas fa-plus"></i> Agregar Cliente
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Listado Clientes-->
+<section id="clientes">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header text-center">
+            <h1>Listado de Productos</h1>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Saldo</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of productos; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{item.codigo}}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.categoria }}</td>
+                <td>{{ item.valor }}</td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    onclick="document.getElementById('id02').style.display='block'"
+                    style="background: green"
+                    (click)="editar(item._id)"
+                  >
+                    <i class="fas fa-user-edit"></i> Editar
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-danger" (click)="eliminar(item._id)">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--Tarjetas laterales-->
+      <div class="col-md-3">
+        <div
+          class="card text-center text-white mb-3"
+          style="background: #00377b"
+        >
+          <div class="card-body">
+            <h3>Total Productos</h3>
+            <h4 class="display-4">
+              {{ productos.length }}
+            </h4>
+          </div>
+        </div>
+      </div>
+      <!--Fin tarjetas laterales-->
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="gregarClienteModal">
+  <div class="modal-dialog modl-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title">Agregar producto</h5>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Agregar producto-->
+
+<div class="w3-container">
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-teal">
+        <span
+          onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright"
+          >&times;</span
+        >
+        <h2 style="margin-top: 14px">AGREGAR PRODUCTO</h2>
+      </header>
+      <div class="w3-container">
+        <form [formGroup]="form" (ngSubmit)="agregar()">
+          <div class="mb-3" style="margin-top: 4px">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Codigo</label
+            >
+            <input type="text" class="form-control" formControlName="codigo" />
+          </div>
+          <div class="mb-3" style="margin-top: 4px">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Nombre</label
+            >
+            <input type="text" class="form-control" formControlName="nombre" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Categoria</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="categoria"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Valor</label
+            >
+            <input type="number" class="form-control" formControlName="valor" />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            style="margin-bottom: 10px"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-teal">
+        <span
+          onclick="document.getElementById('id02').style.display='none'"
+          class="w3-button w3-display-topright"
+          >&times;</span
+        >
+        <h2 style="margin-top: 14px">EDITAR CLIENTE</h2>
+      </header>
+      <div class="w3-container">
+        <form [formGroup]="form" (ngSubmit)="editar2()">
+          <div class="mb-3" style="margin-top: 4px">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Codigo</label
+            >
+            <input type="text" class="form-control" formControlName="codigo" />
+          </div>
+          <div class="mb-3" style="margin-top: 4px">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Nombre</label
+            >
+            <input type="text" class="form-control" formControlName="nombre" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Categoria</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="categoria"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Valor</label
+            >
+            <input type="number" class="form-control" formControlName="valor" />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            style="margin-bottom: 10px"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

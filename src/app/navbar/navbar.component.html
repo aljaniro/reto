@@ -1,0 +1,17 @@
+<header>
+  <nav class="navbar">
+    <h2 class="titulos">PRUEBA TÉCNICA</h2>
+    <ul class="menu" id="menu">
+      <li>
+        <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+          >Home</a
+        >
+      </li>
+
+      <li><a [routerLink]="['/productos']">Product</a></li>
+    </ul>
+    <div class="menu-bar" id="menu-bar" (click)="prueba()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+</header>

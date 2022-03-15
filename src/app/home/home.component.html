@@ -1,0 +1,64 @@
+<section class="home">
+  <div class="primera">
+    <div class="card" style="background: rgb(102, 93, 153); color: white">
+      <div
+        class="card-header text-center"
+        style="background: rgb(25, 11, 87); color: white"
+      >
+        Datos Personales
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="enviar()">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ingrese el nombre"
+              formControlName="nombre"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Apelido</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ingrese su apellido"
+              formControlName="apellido"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Telefono</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Ingrese su telefono"
+              formControlName="telefono"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Fecha</span>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="correo"
+              formControlName="fecha"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="segunda"></div>
+</section>

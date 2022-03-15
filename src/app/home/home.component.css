@@ -1,0 +1,74 @@
+.home{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: repeat(4,1fr);
+  height: 650px;
+}.primera{
+  grid-row: 1/5;
+  grid-column: 1/4;
+}
+
+
+.primera .card{
+  align-self: center;
+  grid-row: 1/5;
+  grid-column: 1/4;
+}
+
+.card{
+
+  grid-column: 2/6;
+  margin-left: 3em;
+  margin-top: 5em;
+  color: black;
+  height: 400px;
+  width: 400px;
+}
+
+.card span{
+  width: 100px;
+  background: rgb(57, 51, 117);
+  color: white;
+}
+.card .btn{
+  width: 100%;
+  margin-top: 10px;
+  background: rgb(57, 51, 117);
+}
+
+.segunda{
+
+  grid-row: 1/5;
+  grid-column: 5/13;
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgb(10, 10, 10, .50), rgb(10, 10, 10,.50), #0f0c29),url(https://cdn.pixabay.com/photo/2021/10/03/04/21/woman-6676901_960_720.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+}
+
+.home .segunda h2{
+
+  color: white;
+}
+
+@media only screen and (max-width: 800px)  {
+  .home{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5,1fr);
+  }
+  .home .card{
+    grid-column: 2/10;
+    z-index: -1;
+  }
+  .primera{
+    z-index: -2;
+    grid-row: 1/5;
+    grid-column: 1/3;}
+  .segunda{
+    grid-column: 1/11;
+    z-index: -3;
+    grid-row: 1/6;
+
+  }
+}
